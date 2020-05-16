@@ -1,22 +1,8 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import PokeCard from './PokeCard';
-import {mapIdToProps, mapNumToId} from './Maps';
-import './PokeCard.css';
-import PokeDex from './PokeDex';
-import PokeGame from './PokeGame';
-import './PokeGame.css';
+import React from "react";
+import ReactDom from "react-dom";
+import PokeCard from "./components/PokeCard/PokeCard";
+import { mapIdToProps, mapNumToId } from "./Maps";
+import PokeDex from "./components/PokeHand/PokeHand";
+import App from "./components/App/App";
 
-
-
-class App extends React.Component{
-	render(){
-
-
-		return(
-			<PokeGame />
-		)
-	}
-}
-
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById("root"));

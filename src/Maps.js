@@ -1,43 +1,27 @@
-var mapIdToProps = new Map();
-mapIdToProps.set(4,["Charmander","Fire",2]);
-mapIdToProps.set(7,["Squirtle","Water",4]);
-mapIdToProps.set(11,["Metapod","Bug",5]);
-mapIdToProps.set(12,["ButterFree","Flying",1]);
+let pokemon = {
+  default: { imgID: null, name: "", type: "", exp: 0 }, //pokeball
+  0: { imgID: 4, name: "Charmander", type: "Fire", exp: 2 },
+  1: { imgID: 7, name: "Squirtle", type: "Water", exp: 4 },
+  2: { imgID: 11, name: "Metapod", type: "Bug", exp: 5 },
+  3: { imgID: 12, name: "ButterFree", type: "Flying", exp: 1 },
+  4: { imgID: 25, name: "Pikachu", type: "Electric", exp: 3 },
+  5: { imgID: 39, name: "Jigglypuff", type: "Normal", exp: 4 },
+  6: { imgID: 94, name: "Gengar", type: "Poison", exp: 5 },
+  7: { imgID: 1, name: "Bulbasaur", type: "Bug", exp: 1 },
+  8: { imgID: 30, name: "Rhino", type: "Water", exp: 3 },
+  9: { imgID: 40, name: "Clefairy", type: "Normal", exp: 10 },
+  10: { imgID: 45, name: "FlowerGrape", type: "Bug", exp: 4 },
+  11: { imgID: 55, name: "BigBird", type: "Flying", exp: 5 },
+};
 
-mapIdToProps.set(25,["Pikachu","Electric",3]);
-mapIdToProps.set(39,["Jigglypuff","Normal",4]);
-mapIdToProps.set(94,["Gengar","Poison",5]);
-mapIdToProps.set(1,["Bulbasaur","Bug",1]);
+let typeDB = {
+  Normal: { color: "lightgray" },
+  Fire: { color: "lightcoral" },
+  Water: { color: "lightskyblue" },
+  Flying: { color: "AliceBlue" },
+  Poison: { color: "mediumpurple" },
+  Bug: { color: "lightgreen" },
+  Electric: { color: "lightyellow" },
+};
 
-mapIdToProps.set(30,["Rhino","Water",3]);
-mapIdToProps.set(40,["Clefairy","Normal",10]);
-mapIdToProps.set(45,["FlowerGrape","Bug",4]);
-mapIdToProps.set(55,["BigBird","Flying",5]);
-
-var mapNumToId = new Map();
-mapNumToId.set(0,4);
-mapNumToId.set(1,7);
-mapNumToId.set(2,11);
-mapNumToId.set(3,12);
-
-mapNumToId.set(4,25);
-mapNumToId.set(5,39);
-mapNumToId.set(6,94);
-mapNumToId.set(7,1);
-
-mapNumToId.set(8,30);
-mapNumToId.set(9,40);
-mapNumToId.set(10,45);
-mapNumToId.set(11,55);
-
-var mapTypeToColor = new Map();
-mapTypeToColor.set("Normal", "lightgray");
-mapTypeToColor.set("Fire","lightcoral");
-mapTypeToColor.set("Water","lightskyblue");
-mapTypeToColor.set("Flying","AliceBlue");
-mapTypeToColor.set("Poison","mediumpurple");
-mapTypeToColor.set("Bug","lightgreen");
-mapTypeToColor.set("Electric","lightyellow");
-
-
-export {mapIdToProps, mapNumToId, mapTypeToColor};
+export { mapIdToProps, mapNumToId, mapTypeToColor, pokemon, typeDB };
