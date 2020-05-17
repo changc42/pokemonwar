@@ -7,8 +7,9 @@ import {
   pokemon,
   typeDB,
 } from "../../Maps";
-import "./PokeCard.css";
 import { digit3 } from "../../staticFunctions";
+import { withStyles } from "@material-ui/core/styles";
+let pokeCardStyles = require("./pokeCardStyles");
 
 class PokeCard extends React.Component {
   static defaultProps = {
@@ -16,25 +17,23 @@ class PokeCard extends React.Component {
   };
 
   renderCard() {
-    let { pokemonID } = this.props;
-    let { imgId, name, type, exp } = pokemon[pokemonID];
-    let imgURL =
-      pokemonID === "default"
-        ? "pokeball.jpg"
-        : `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${digit3(
-            imgId
-          )}.png`;
+    let { pokemonID, classes } = this.props;
+    let { imgID, name, type, exp } = pokemon[pokemonID];
+    let imgURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${digit3(
+      imgID
+    )}.png`;
+    console.log(imgURL);
     return (
       <div
-        className="PokeCard"
+        className={classes.PokeCard}
         style={{
           backgroundColor: typeDB[pokemon[pokemonID].type].color,
         }}
       >
         <h2>{name}</h2>
-        <img src={imgURL} />
-        <div className="PokeCard_details">
-          <p style={{ fontSize: "20px" }}>Type: {type}</p>
+        <img className={classes.PokeImg} src={imgURL} alt="pokemon img" />
+        <div className={classes.PokeCard_details}>
+          <p>Type: {type}</p>
           <p>Exp: {exp}</p>
         </div>
       </div>
@@ -42,7 +41,8 @@ class PokeCard extends React.Component {
   }
 
   renderPokeball() {
-    return <img src="pokeball.jpg" />;
+    let { classes } = this.props;
+    return <img src="pokeball.jpg" className={classes.PokeImg} />;
   }
 
   render() {
@@ -50,4 +50,4 @@ class PokeCard extends React.Component {
   }
 }
 
-export default PokeCard;
+export default withStyles(pokeCardStyles)(PokeCard);

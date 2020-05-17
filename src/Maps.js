@@ -24,4 +24,4 @@ let typeDB = {
   Electric: { color: "lightyellow" },
 };
 
-export { mapIdToProps, mapNumToId, mapTypeToColor, pokemon, typeDB };
+export { pokemon, typeDB };
