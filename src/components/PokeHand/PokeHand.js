@@ -1,20 +1,20 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
 import PokeCard from "../PokeCard/PokeCard";
-let pokeHandStyles = require("./pokeHandStyles");
+import pokeHandStyles from "./pokeHandStyles";
 
 class PokeDex extends React.Component {
   static defaultProps = {
-    pokemonIDs: ["default", "default", "default", "default"],
+    pokemonIDs: [0, 0, 0, 0],
     totalExp: 0,
   };
 
   renderCards() {
     return this.props.pokemonIDs.map((pokemonID) => (
-      <Grid item lg={3}>
+      <Grid item sm={3} xs={6}>
         <PokeCard pokemonID={pokemonID} isGameStart={this.props.isGameStart} />
       </Grid>
     ));
@@ -22,16 +22,12 @@ class PokeDex extends React.Component {
   render() {
     let { classes } = this.props;
     return (
-      <div>
-        {this.props.isGameStart ? (
-          <div className={classes.ExpMessage}>
-            Total exp: {this.props.totalExp}
-          </div>
-        ) : (
-          ""
-        )}
+      <Container>
+        <div className={classes.ExpMessage}>
+          Total exp: {this.props.totalExp}
+        </div>
         <Grid container>{this.renderCards()}</Grid>
-      </div>
+      </Container>
     );
   }
 }

@@ -9,7 +9,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
-let appStyles = require("./appStyles");
+import appStyles from "./appStyles";
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);

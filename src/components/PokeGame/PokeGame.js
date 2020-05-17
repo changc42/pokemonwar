@@ -2,7 +2,7 @@ import React from "react";
 import PokeHand from "../PokeHand/PokeHand";
 import { withStyles } from "@material-ui/core";
 import { pokemon } from "../../Maps";
-let pokeGameStyles = require("./pokeGameStyles");
+import pokeGameStyles from "./pokeGameStyles";
 
 // import "./PokeGame.css";
 
@@ -21,30 +21,43 @@ class PokeGame extends React.Component {
 
     let message1, message2;
     if (hand1Total > hand2Total) {
-      message1 = "Winner!";
-      message2 = "Loser";
+      message1 = (
+        <div className={classes.winLoseMessage} style={{ color: "green" }}>
+          Winner!
+        </div>
+      );
+      message2 = (
+        <div className={classes.winLoseMessage} style={{ color: "red" }}>
+          Loser
+        </div>
+      );
     } else if (hand1Total < hand2Total) {
-      message1 = "Loser";
-      message2 = "Winner!";
+      message1 = (
+        <div className={classes.winLoseMessage} style={{ color: "red" }}>
+          Loser
+        </div>
+      );
+      message2 = (
+        <div className={classes.winLoseMessage} style={{ color: "green" }}>
+          Winner!
+        </div>
+      );
     } else {
-      message1 = "Draw";
-      message2 = "Draw";
+      message1 = message2 = <div className={classes.winLoseMessage}>Draw</div>;
     }
 
     return (
       <div className={classes.PokeGame}>
-        <div className={classes.winLoseMessage}>
-          {isGameStart ? message1 : ""}
-        </div>
+        {message1}
         <PokeHand
           pokemonIDs={hand1}
           totalExp={hand1Total}
           isGameStart={this.props.isGameStart}
         />
-        <div className={classes.winLoseMessage}>
-          {isGameStart ? message2 : ""}
-        </div>
 
+        <div style={{ fontSize: "2vh", opacity: 0 }}>divider</div>
+
+        {message2}
         <PokeHand
           pokemonIDs={hand2}
           totalExp={hand2Total}

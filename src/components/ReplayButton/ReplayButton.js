@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { Typography, ButtonBase } from "@material-ui/core";
-let replayButtonStyles = require("./replayButtonStyles");
+import replayButtonStyles from "./replayButtonStyles";
 
 function ReplayButton(props) {
   let { buttonText, onClick, classes } = props;

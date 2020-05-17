@@ -1,11 +1,13 @@
-module.exports = {
+export default (theme) => ({
   App: {
     fontFamily: "Comic Sans MS",
   },
   PokemonLogo: {
     display: "block",
     margin: "auto",
-    height: "10vh",
+    [theme.breakpoints.up("xs")]: { height: "4vh" },
+    [theme.breakpoints.up("sm")]: { height: "10vh" },
+
     padding: "1vh",
     "& img": {
       position: "relative",
@@ -19,4 +21,4 @@ module.exports = {
     margin: "auto",
     display: "block",
   },
-};
+});

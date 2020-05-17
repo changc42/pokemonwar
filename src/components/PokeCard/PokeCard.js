@@ -9,7 +9,7 @@ import {
 } from "../../Maps";
 import { digit3 } from "../../staticFunctions";
 import { withStyles } from "@material-ui/core/styles";
-let pokeCardStyles = require("./pokeCardStyles");
+import pokeCardStyles from "./pokeCardStyles";
 
 class PokeCard extends React.Component {
   static defaultProps = {
@@ -30,19 +30,30 @@ class PokeCard extends React.Component {
           backgroundColor: typeDB[pokemon[pokemonID].type].color,
         }}
       >
-        <h2>{name}</h2>
+        <p className={classes.PokeNameText}>{name}</p>
         <img className={classes.PokeImg} src={imgURL} alt="pokemon img" />
-        <div className={classes.PokeCard_details}>
-          <p>Type: {type}</p>
-          <p>Exp: {exp}</p>
-        </div>
+        <p className={classes.PokeTypeText}>Type: {type}</p>
+        <p className={classes.ExpText}>Exp: {exp}</p>
       </div>
     );
   }
 
   renderPokeball() {
     let { classes } = this.props;
-    return <img src="pokeball.jpg" className={classes.PokeImg} />;
+    return (
+      <div className={classes.PokeCard}>
+        <p className={classes.PokeNameText} style={{ opacity: "0" }}>
+          filler name
+        </p>
+        <img src="pokeball.jpg" className={classes.PokeImg} />
+        <p className={classes.PokeTypeText} style={{ opacity: "0" }}>
+          Type:{" "}
+        </p>
+        <p className={classes.ExpText} style={{ opacity: "0" }}>
+          Exp:{" "}
+        </p>
+      </div>
+    );
   }
 
   render() {
